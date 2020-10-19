@@ -1,0 +1,105 @@
+body {
+  background-color: black;
+}
+
+
+.cadre{
+  position: absolute;
+  margin:0 auto;
+  width:600px;
+  height:300px;
+  border:10px double white;
+}
+.clear{
+  clear:both;
+}
+.gauche{
+  float:left;
+  width:30px;
+  height:100px;
+  background:purple;
+  animation:left-wall 5s infinite;
+  border-radius: 20%;
+  
+}
+.droite{
+  float:right;
+  width:30px;
+  height:100px;
+  background:purple;
+  animation:left-wall 5s infinite;
+  border-radius: 20%;
+  
+}
+.balle1{
+  float:left;
+  width:30px;
+  height:30px;
+  background:white;
+  border-radius:50%;
+  margin-top:50px;
+  animation:bounce_balls 5s linear infinite;
+}
+
+.balle2 {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  animation:bounce_balle 5s linear infinite;
+}
+
+.centre {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0px;
+  height: 300px;  
+  border: white dashed 4px;
+}
+
+@keyframes left-wall{
+  0% {margin-top:0px;}
+  25%{margin-top:84px;}
+  50%{margin-top:200px;}
+  75%{margin-top:50px;}
+  100%{margin-top:0px;}
+  
+}
+@keyframes right-wall{
+  0% {margin-top:200px;}
+  25%{margin-top:84px;}
+  50%{margin-top:0px;}
+  75%{margin-top:50px;}
+  100%{margin-top:200px;}
+  
+}
+@keyframes bounce_balls{
+  0% {margin-top:30px;}
+  25%{margin-left:235px;margin-top:250px;}
+  26%{background-color: red;}
+  28%{background-color: white;}
+  50%{margin-left:0px;margin-top:180px;}
+  51%{background-color: red;}
+  52%{background-color: white;}
+  75%{margin-left:235px;margin-top:180px;}
+  76%{background-color: red;}
+  77%{background-color: white;}
+  98%{background-color: red;}
+  100%{margin-top:30px;} 
+}
+
+@keyframes bounce_balle{
+  0% {margin-left:545px;margin-top:30px;}
+  25%{margin-left:305px;margin-top:250px;}
+  26%{background-color: red;}
+  28%{background-color: white;}
+  50%{margin-left:545px;margin-top:180px;}
+  51%{background-color: red;}
+  52%{background-color: white;}
+  75%{margin-left:305px;margin-top:180px;}
+  76%{background-color: red;}
+  77%{background-color: white;}
+  98%{background-color: red;}
+  100%{margin-left:545px;margin-top:30px;} 
+}
