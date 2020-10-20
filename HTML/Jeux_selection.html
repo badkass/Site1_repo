@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="">
+    <link rel="stylesheet" type="text/css" href="../CSS/SelectImages.CSS">
+    <link rel="shortcut icon" type="image" href="../CONTENU/Images/giphy3.gif"/>
+    <script type="text/javascript">
+      
+    </script>
+    <title>
+      Selection des jeux
+    </title>
+  </head>
+
+  <body>
+    <header>
+      
+    </header>
+
+    <h1>Selection d'images</h1>
+
+    <div id="total"></div>
+    <script type="text/javascript">
+      function init()
+      //Fonction qui créer le conteneur des images
+      {
+        let X=document.getElementById("images");
+        document.write("<div id='Conteneur'>");
+
+        
+        document.write("</div>");
+      }
+
+      function reset()
+      //Fonction qui fait disparaître les images quand on appuie sur le bouton reset
+      {
+        let X=document.getElementById("Jeux");
+        for (var i = 0; i < X.length; i++)
+        {
+          let Chaine = "Img"+(i+1);
+          document.getElementById(Chaine).style.visibility = 'hidden';
+        }
+      }
+
+      let tprix = [20, 10, 30.20, 12.20];
+
+      function change(X)
+      //Fonction qui fait apparaître ou disparaître les images quand on les sélectionne dans la liste déroulante
+      //BUG : Sélection multiple avec contrôle
+      {
+        //let Chaine = X.value;
+
+        document.getElementById("Conteneur").innerHTML = "";
+        let sum = 0.00;
+        for (var i = 0; i < X.length; i++)
+        {
+          option = X[i];
+          let Str = option.value;
+          
+
+          if (option.selected)
+          {
+          sum += tprix[i];
+          document.getElementById('total').innerHTML = sum;
+          
+            let newimage = document.createElement("Img"); 
+            newimage.src = "../CONTENU/Images/" + Str + ".jpg";
+            document.getElementById("Conteneur").append(newimage);
+
+          }
+
+        }
+      }
+
+      
+
+
+      let tjeu = ["mario", "gta", "zelda", "skate"];
+      
+      function select()
+      //Fonction qui affiche le sélecteur
+      {
+        document.write("<select name='images' id='images' onchange='change(this)' multiple>");
+        for (var i = 0; i < 4; i++)
+        {
+          let Chaine1 = "Img"+(i+1);
+          let Chaine2 = "Jeu"+(i+1);
+          document.write("<option value=" + Chaine1 + ">"+tjeu[i]+" "+tprix[i]+"</option>");
+        }
+        document.write("</select>");
+      }
+
+      document.write("<p>Veuillez sélectionner les images à afficher</p>")
+
+      select();
+
+      init();
+      
+     
+      
+
+      
+    </script>
+
+    <button type="button" onclick="reset()">Reset</button>
+
+    <br>
+
+    <footer> <!--pied de page -->
+    _____________________________________________________________________________________________________________________________________________________________________________________________
+    Contact : 
+    <ul><li><a href = "mailto:n.semivolos@ludus-academie.com" title = "Mail" > n.semivolos@ludus-academie.com </a></li>
+    <li>Numero</li>
+    <li><a href = "http://ludus-academie.fr/" title = "Ludus-Academie" target = _blank>Ludus Academie</a></li></ul>
+    
+    </footer>
+  </body>
+</html>
