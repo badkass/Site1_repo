@@ -10,37 +10,108 @@
       body {
           background-color: red;
   }
-</style>
-  <script type="text/javascript">
-
-  function update(elem){
-          var p1=document.getElementById("p1");
-          if(elem.getAttribute("name")=="color"){
-             p1.style.background="rgb("+elem.value+","+elem.value+","+elem.value+")";
-             var c= 255-elem.value;
-             p1.style.color="rgb("+c+","+c+","+c+")";
-          }
-          else if(elem.getAttribute("name")=="padding"){
-              p1.style.padding=elem.value+"px"; 
-          }
-          else if(elem.getAttribute("name")=="height"){
-              p1.style.height=elem.value+"px";  
-          }
-          else if(elem.getAttribute("name")=="width"){
-              p1.style.width=elem.value+"px"; 
-          }
-          else if(elem.getAttribute("name")=="radius"){
-              p1.style.borderRadius=elem.value+"px";  
-          }
-          else if(elem.getAttribute("name")=="rotation"){
-              p1.style.transform="rotate("+elem.value+"deg)"; 
-          }
-            
-  }
+  </style>
+          <script type="text/javascript">
+          
+          const reset = document.getElementById('btnR')
+          const inputBc = document.getElementById('bc')
+          const inputP = document.getElementById('pad')
+          const inputH = document.getElementById('h')
+          const inputW = document.getElementById('w')
+          const inputRad = document.getElementById('rad')
+          const inputRot = document.getElementById('rot')
+          const t1 = document.getElementById('p1')
 
 
-</script>
+          // Déclaration fonction pour bouton color
+            function InputBackColor () {
+              if (inputBc.getAttribute('name') === 'color') {
+                p1.style.backgroundColor = 'rgb(' + inputBc.value + ',' + inputBc.value + ',' + inputBc.value + ')'
+                // transalte color
+                const c = 255 - inputBc.value
+                p1.style.color = 'rgb(' + c + ',' + c + ',' + c + ')'
+              }
+            }
 
+            // Déclaration pour input padding
+            function inputPadd () {
+              if (inputP.getAttribute('name') === 'padding') {
+                p1.style.padding = inputP.value + 'px'
+              }
+            }
+
+            // Déclaration fonction pour input Height
+            function inputHeight () {
+              p1.style.height = inputH.value + 'px'
+            }
+
+            // Déclaration fonction pour input width
+            function inputWidth () {
+              p1.style.width = inputW.value + 'px'
+            }
+
+            // Déclaration fonction pour input radius
+            function radius () {
+              p1.style.borderRadius = inputRad.value + 'px'
+            }
+
+            // Déclaration fonction pour input rotation
+            const rotation = () => {
+              p1.style.transform = 'rotate(' + inputRot.value + 'deg'
+            }
+
+            // Input BackgroundColor + color text
+            inputBc.oninput = InputBackColor
+
+            // Input Padding oninput
+            inputP.oninput = inputPadd
+
+            // Input height oninput
+            inputH.oninput = inputHeight
+
+            // Input width oninput
+            inputW.oninput = inputWidth
+
+            // Input radius oninput
+            inputRad.oninput = radius
+
+            // Input rotation oninput
+            inputRot.oninput = rotation
+
+            // Reset quand on appuie dessus
+
+            reset.onclick = function () {
+              if (inputBc.getAttribute('name') === 'color') {
+                inputBc.value = '0'
+                InputBackColor()
+              }
+
+              if (inputP.getAttribute('name') === 'padding') {
+                inputP.value = '0'
+                inputPadd()
+              }
+
+              if (inputH.getAttribute('name') === 'height') {
+                inputH.value = '0'
+                inputHeight()
+              }
+
+              if (inputW.getAttribute('name') === 'width') {
+                inputW.value = '0'
+                inputWidth()
+              }
+
+              if (inputRad.getAttribute('name') === 'radius') {
+                inputRad.value = '0'
+                radius()
+              }
+
+              if (inputRot.getAttribute('name') === 'rotation') {
+                inputRot.value = '0'
+                rotation()
+              }
+            }
+        </script>
 
 </head>
 <body>
@@ -50,7 +121,7 @@
    					<tr>
    						<td>couleur de fond (rgb)</td>
    						<td>
-                0<input type="range" min="0" max="255" step=5 name='color' oninput='update(this)' value="0">255
+                0<input id="bc" type="range" min="0" max="255" step=5 name='color' value="0">255
               </td>
    						<td rowspan="6" width="400" align="center">
    							<h1 id="p1">Titre de test</h1></td>
@@ -58,37 +129,39 @@
    					<tr>
    						<td>padding</td>
    						<td>
-                0<input type="range" name="padding" min="0" max="30" step=5 oninput='update(this)' value="0">30
+                0<input id="pad" type="range" name="padding" min="0" max="30" step=5 value="0">30
               </td>
    					</tr>
    					<tr>
    						<td>height</td>
    						<td>
-                0<input type="range" min="5" max="200" name="height" step=50 value="0" oninput='update(this)'>200
+                0<input id="h" type="range" min="5" max="200" name="height" step=50 value="0" >200
               </td>
    					</tr>
    					<tr>
    						<td>width</td>
    						<td>
-                0<input type="range" min="5" max="200" name="width" step=50 value="0" oninput='update(this)'>200
+                0<input id="w" type="range" min="5" max="200" name="width" step=50 value="0" >200
               </td>
    					</tr>
    					<tr>
    						<td>arrondi</td>
    						<td>
-                0<input type="range" min="5" max="30" name="radius" step=5 value="0" oninput='update(this)'>30
+                0<input id="rad" type="range" min="5" max="30" name="radius" step=5 value="0" >30
               </td>
    					</tr>
    					<tr>
    						<td>rotation</td>
    						<td>
-                0<input type="range" min="5" max="180" name="rotation" step=5 value="0" oninput='update(this)'>180
+                0<input id="rot" type="range" min="0" max="180" name="rotation" step=5 value="0" >180
               </td>
    					</tr>
-   					
+   					 
    				</table>
-   		          
+   		       
    			</div>
+        <button id="btnR" type="reset" value="reset">reset</button>
+
    			<footer> <!--pied de page -->
     _____________________________________________________________________________________________________________________________________________________________________________________________
     Contact : 
@@ -99,3 +172,5 @@
     </footer>
 </body>
 </html>
+
+<!--oninput='update(this)'-->
