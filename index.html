@@ -1,119 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="icon" href="">
-    <link rel="stylesheet" type="text/css" href="CSS/SelectImages.CSS">
-    <link rel="shortcut icon" type="image" href="CONTENU/Images/giphy3.gif"/>
-    <script type="text/javascript">
-      
-    </script>
-    <title>
-      Selection des jeux
-    </title>
-  </head>
+<head>
+	<head>     <!--Entête de page -->  
+    <meta charset = "utf-8"/><!--encodage de la page-->
+    <title>Examen blanc 2019</title><!--titre de la page-->
+    <link rel="shortcut icon" type="image" href="../CONTENU/Images/giphy3.gif"/><!--icone de l'onglet-->
+    <lang="fr">
+    <style> 
+      body {
+          background-color: red;
+  }
+</style>
+  <script type="text/javascript">
 
-  <body>
-    <header>
-      
-    </header>
-
-    <h1>Selection d'images</h1>
-
-    <div id="total"></div>
-    <script type="text/javascript">
-      function init()
-      //Fonction qui créer le conteneur des images
-      {
-        let X=document.getElementById("images");
-        document.write("<div id='Conteneur'>");
-
-        
-        document.write("</div>");
-      }
-
-      function reset()
-      //Fonction qui fait disparaître les images quand on appuie sur le bouton reset
-      {
-        let X=document.getElementById("Jeux");
-        for (var i = 0; i < X.length; i++)
-        {
-          let Chaine = "Img"+(i+1);
-          document.getElementById(Chaine).style.visibility = 'hidden';
-        }
-      }
-
-      let tprix = [20, 10, 30.20, 12.20];
-
-      function change(X)
-      //Fonction qui fait apparaître ou disparaître les images quand on les sélectionne dans la liste déroulante
-      //BUG : Sélection multiple avec contrôle
-      {
-        //let Chaine = X.value;
-
-        document.getElementById("Conteneur").innerHTML = "";
-        let sum = 0.00;
-        for (var i = 0; i < X.length; i++)
-        {
-          option = X[i];
-          let Str = option.value;
-          
-
-          if (option.selected)
-          {
-          sum += tprix[i];
-          document.getElementById('total').innerHTML = sum;
-          
-            let newimage = document.createElement("Img"); 
-            newimage.src = "CONTENU/Images/" + Str + ".jpg";
-            document.getElementById("Conteneur").append(newimage);
-
+  function update(elem){
+          var p1=document.getElementById("p1");
+          if(elem.getAttribute("name")=="color"){
+             p1.style.background="rgb("+elem.value+","+elem.value+","+elem.value+")";
+             var c= 255-elem.value;
+             p1.style.color="rgb("+c+","+c+","+c+")";
           }
+          else if(elem.getAttribute("name")=="padding"){
+              p1.style.padding=elem.value+"px"; 
+          }
+          else if(elem.getAttribute("name")=="height"){
+              p1.style.height=elem.value+"px";  
+          }
+          else if(elem.getAttribute("name")=="width"){
+              p1.style.width=elem.value+"px"; 
+          }
+          else if(elem.getAttribute("name")=="radius"){
+              p1.style.borderRadius=elem.value+"px";  
+          }
+          else if(elem.getAttribute("name")=="rotation"){
+              p1.style.transform="rotate("+elem.value+"deg)"; 
+          }
+            
+  }
 
-        }
-      }
 
-      
+</script>
 
 
-      let tjeu = ["mario", "gta", "zelda", "skate"];
-      
-      function select()
-      //Fonction qui affiche le sélecteur
-      {
-        document.write("<select name='images' id='images' onchange='change(this)' multiple>");
-        for (var i = 0; i < 4; i++)
-        {
-          let Chaine1 = "Img"+(i+1);
-          let Chaine2 = "Jeu"+(i+1);
-          document.write("<option value=" + Chaine1 + ">"+tjeu[i]+" "+tprix[i]+"</option>");
-        }
-        document.write("</select>");
-      }
-
-      document.write("<p>Veuillez sélectionner les images à afficher</p>")
-
-      select();
-
-      init();
-      
-     
-      
-
-      
-    </script>
-
-    <button type="button" onclick="reset()">Reset</button>
-
-    <br>
-
-    <footer> <!--pied de page -->
-    _____________________________________________________________________________________________________________________________________________________________________________________________
-    Contact : 
-    <ul><li><a href = "mailto:n.semivolos@ludus-academie.com" title = "Mail" > n.semivolos@ludus-academie.com </a></li>
-    <li>Numero</li>
-    <li><a href = "http://ludus-academie.fr/" title = "Ludus-Academie" target = _blank>Ludus Academie</a></li></ul>
-    
-    </footer>
-  </body>
+</head>
+<body>
+	      
+   			<div >
+   				<table border="1">
+   					<tr>
+   						<td>couleur de fond (rgb)</td>
+   						<td>
+                0<input type="range" min="0" max="255" step=5 name='color' oninput='update(this)' value="0">255
+              </td>
+   						<td rowspan="6" width="400" align="center">
+   							<h1 id="p1">Titre de test</h1></td>
+   					</tr>
+   					<tr>
+   						<td>padding</td>
+   						<td>
+                0<input type="range" name="padding" min="0" max="30" step=5 oninput='update(this)' value="0">30
+              </td>
+   					</tr>
+   					<tr>
+   						<td>height</td>
+   						<td>
+                0<input type="range" min="5" max="200" name="height" step=50 value="0" oninput='update(this)'>200
+              </td>
+   					</tr>
+   					<tr>
+   						<td>width</td>
+   						<td>
+                0<input type="range" min="5" max="200" name="width" step=50 value="0" oninput='update(this)'>200
+              </td>
+   					</tr>
+   					<tr>
+   						<td>arrondi</td>
+   						<td>
+                0<input type="range" min="5" max="30" name="radius" step=5 value="0" oninput='update(this)'>30
+              </td>
+   					</tr>
+   					<tr>
+   						<td>rotation</td>
+   						<td>
+                0<input type="range" min="5" max="180" name="rotation" step=5 value="0" oninput='update(this)'>180
+              </td>
+   					</tr>
+   					
+   				</table>
+   		          
+   			</div>
+   			
+</body>
 </html>
