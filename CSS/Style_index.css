@@ -1,0 +1,21 @@
+.conteneur {
+	width: auto;
+    display: flex;
+    flex-direction: horizontal;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px;
+    padding: 20px;
+    background-color: #DF6161;
+    border: 1px white solid;
+    border-radius: 5px;
+    line-height: 30px;
+}
+
+body {
+	background-color: red;
+}
+
+#titre {
+	text-align: center;
+}
