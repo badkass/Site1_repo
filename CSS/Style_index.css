@@ -1,7 +1,7 @@
 .conteneur {
 	width: auto;
     display: flex;
-    flex-direction: horizontal;
+    /*flex-direction: horizontal;*/
     flex-wrap: wrap;
     justify-content: center;
     margin: 5px;
@@ -18,4 +18,8 @@ body {
 
 #titre {
 	text-align: center;
+}
+
+p{
+	margin-left: 1350px;
 }
