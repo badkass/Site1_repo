@@ -6,6 +6,16 @@ h2 {
   color: white;
 }
 
+li {
+  color: white;
+}
+
+p{
+  color: white;
+}
+a{
+  color: white;
+}
 .cadre{
   position: absolute;
   margin:0 auto;
