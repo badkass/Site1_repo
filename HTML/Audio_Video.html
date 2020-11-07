@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<HEAD>
+		<meta charset="utf-8"/>
+		<TITLE> Audio/Vidéo </TITLE>
+		<link rel="stylesheet" href="../CSS/Audio.css">
+		<link rel="shortcut icon" type="image" href="../CONTENU/Images/giphy3.gif"/>
+
+	</HEAD> 
+	<BODY>
+		<header>
+			<img src = "../CONTENU/Images/ludus_academie.jpg"  alt = "Logo de Ludus"  title = "Logo jpeg"/>
+		</header>
+		<div>
+
+		<h1>AUDIO ET VIDEO</h1>
+		<p>L'élément HTML <strong><'audio'></strong> est utilisé afin d'intégrer un contenu sonore dans un document.<br>
+		Il peut contenir une ou plusieurs sources audio représentées avec l'attribut <strong>src</strong> ou l'élément <strong><'source'></strong>.<br> 
+		S'il y a plusieurs sources, l'agent utilisateur choisira celle qui convient le mieux. </p>
+		<p>L'exemple qui précède illustre le fonctionnement simple d'un élément <'audio'>,<br>
+		à la façon de ce qui peut être fait pour une image avec l'élément <strong><'img'></strong> : <br>
+		on inclut un chemin vers la ressource grâce à l'attribut src et on peut ajouter <br>
+		d'autres attributs afin de fournir d'autres informations : lecture automatique, <br>
+		lecture en boucle, utilisation des contrôles par défaut du navigateur, etc</p>
+
+		<p>Le contenu présent à l'intérieur des balises <'audio'></'audio'> est affiché comme contenu alternatif <br>
+		lorsque le navigateur ne prend pas en charge l'élément.</p>
+
+		<p>Les navigateurs ne prennent pas en charge l'ensemble des formats audio et plusieurs <br> 
+		sources peuvent être fournies en utilisant des éléments <'source'> imbriqués.  <br> 
+		Ainsi, le navigateur sélectionnera la première ressource dont il  
+		prend en charge le format.</p>
+
+		<p>Autres notes : <br>
+
+		<ul> <li>Si l'attribut <strong>controls</strong> n'est pas indiqué, le lecteur audio n'incluera pas <br>
+		les contrôles par défaut du navigateur. Il est possible de créer des contrôles spécifiques <br>
+		en JavaScript grâce à l'<strong>API HTMLMediaElement. </strong> </li>
+		<li>Afin d'avoir un contrôle précis sur le contenu audio, l'API HTMLMediaElement déclenche <br>
+		de nombreux évènements. </li>
+		<li>Il est aussi possible d'utiliser l'API Web Audio afin de générer et de manipuler des flux audio<br>
+		 en JavaScript. </li>
+		<li> Les éléments <'audio'> ne peuvent pas avoir de sous-titres contrairement aux éléments <'video'>. </li> 
+	    </ul></p>
+
+	    <h2>Attributs</h2>
+	    <p>Comme tous les autres éléments HTML, cet élément possède les attributs universels. </p>
+
+		<ul><li><strong>autoplay</strong> <br>
+		Attribut booléen. Si celui-ci est renseigné (même avec une valeur "false"), l'élément audio sera joué automatiquement dès qu'assez de données seront chargées. </li>
+		<li><strong>controls</strong> <br>
+		Si l'attribut est présent, le navigateur affichera des contrôles pour que l'utilisateur puisse gérer la lecture, le volume, et le déplacement du curseur de lecture.</li>
+		<li><strong>loop</strong><br>
+		Attribut booléen. S'il est renseigné, la lecture du fichier se fera en boucle. </li>
+		<li><strong>muted</strong> <br>
+		Attribut booléen, indiquant si le son de l'élément audio est initialement coupé. Sa valeur par défaut est false. </li>
+		<li><strong>preload</strong> <br>
+		Cet attribut indique au navigateur ce que l'auteur du code html pense de l'utilisation <br>
+		optimale de cet élément. Il accepte uniquement les valeurs suivantes : <br>
+ 
+		<ul><li>none :  l'élément audio ne devrait pas être mis en cache <br> </li>
+		<li>metadata : seules les méta-données (comme la durée) sont préchargées <br> </li>
+		<li>auto : tout le fichier peut être téléchargé, même s'il n'est pas certain que l'utilisateur le lira <br> </li>
+		<li>"" (chaîne de caractères vide) : synonyme de auto <br></li> </ul>
+		Si cet attribut n'est pas renseigné, la valeur par défaut sera celle du navigateur (chaque navigateur pouvant définir sa propre valeur). Les spécifications recommandent la valeur metadata. </li></ul>
+		
+		<figure>
+			<figcaption>Ecouter Rammstein: Amerika</figcaption>
+			</div>
+			<audio controls src="../CONTENU/SON/Rammstein_amerika.mp3">
+			</audio>
+			<figcaption>Bassjackers : Alamo</figcaption>
+			<audio controls src="../CONTENU/SON/Bassjackers_brooks_alamo.mp3">
+			</audio>
+			<figcaption>Harwell feat Blasterjaxx : Bigroom never dies</figcaption>
+			<audio controls src="../CONTENU/SON/Hardwell_blasterjaxx_Bigroom_never_dies.mp3">
+			</audio>
+			<figcaption>Headhunterz feat Malukah : reignite</figcaption>
+			<audio controls src="../CONTENU/SON/Headhunterz_ft_malukah_reignite.mp3">
+			</audio>
+			<figcaption>Regarder le clip vidéo: When i am around you</figcaption>
+			<video controls width="1480" src="../CONTENU/Videos/When_im_around_u.mp4" type="video/mp4">
+		</figure>
+		
+
+			
+		</video>
+		<br>
+		<br>
+		<br>		
+		<a href="../index.html">Retour dans l'index</a> <!-- retour dans l'index-->
+		<footer>
+			<p> Contacts : </p>
+			<ul> 
+				<li> <a href="mailto:n.semivolos@ludus-academie.com"> n.semivolos@ludus-academie.com </a></li>
+				<li> numéro </li>
+				<li><a href = "http://ludus-academie.fr/" title = "Ludus-Academie" target = _blank>Ludus Academie</a></li>
+			</ul>
+		</footer>
+	</BODY>
+</html>

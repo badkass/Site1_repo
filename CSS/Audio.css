@@ -1,0 +1,29 @@
+body {
+	background-color: black;
+	justify-content: center;
+}
+
+div {
+	text-align: justify;
+	width: 30em;
+	margin: auto;
+	color: white;
+}
+
+strong { 
+	text-decoration: underline;
+}
+
+video { 
+	border : solid black 10px;
+}
+
+audio {
+	border : solid black 5px;
+	margin-left: 40em;
+}
+
+figcaption {
+	color : white;
+	text-align: center;
+}
